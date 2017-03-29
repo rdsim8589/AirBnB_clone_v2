@@ -23,9 +23,15 @@ def states_hbnb(id):
                                state=id,
                                objs=obj)
     else:
-        obj = storage.all("State")[id]
-        state_name = obj.name
-        list_cities = obj.cities
+        try:
+            obj = storage.all("State")[id]
+            state_name = obj.name
+            list_cities = obj.cities
+        except KeyError:
+            state_name = None
+            list_cities = None
+            pass
+
         return render_template("9-states.html",
                                state=state_name,
                                objs=list_cities)
