@@ -4,7 +4,6 @@ this module starts a Flask Web application
 """
 from flask import Flask, render_template
 from models import storage, state
-from getenv
 app = Flask(__name__)
 
 
