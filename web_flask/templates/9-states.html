@@ -6,14 +6,18 @@
     <BODY>
       {% if state == "" %}
         <H1>States</H1>
+      {% elif state == None %}
+	<H1>Not found!</H1>
       {% else %}
 	<H1>States: {{ state }}</H1>
 	<H3>Cities:</H3>
       {% endif %}
+      {% if state != None %}
 	<UL>
             {% for obj in objs | sort(attribute='name')  %}
 	        <LI>{{ obj['id'] }}: <B>{{ obj['name'] }}</B></LI>
 	    {% endfor %}
 	</UL>
+      {% endif %}
     </BODY>
 </HTML>
