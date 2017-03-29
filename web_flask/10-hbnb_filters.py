@@ -10,34 +10,21 @@ app = Flask(__name__)
 @app.route("/hbnb_filters/", strict_slashes=False)
 def states_hbnb(id):
     """
-    route for /states/<id>
-
-    returns all states if no id
-    else returns all citys with the state
+    route for /hbnb_filters
 
     """
-    if id is "":
-        obj = storage.all("State").values()
-        return render_template("9-states.html",
-                               state=id,
-                               objs=obj)
-    else:
-        try:
-            obj = storage.all("State")[id]
-            state_name = obj.name
-            list_cities = obj.cities
-        except KeyError:
-            state_name = None
-            list_cities = None
-            pass
-
-        return render_template("9-states.html",
-                               state=state_name,
-                               objs=list_cities)
+    states = storage.all("State").values()
+    amenities = storage.all("Amenity").values()
+    return render_template("10-hbnb_filters.html",
+                               states=states,
+                               amenities=amenity)
 
 
 @app.teardown_appcontext
 def teardown_db(exception):
+    """
+    teardown
+    """
     storage.close()
 
 
