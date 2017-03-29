@@ -7,7 +7,7 @@ from models import storage, state
 app = Flask(__name__)
 
 
-@app.route("/cities_by_states")
+@app.route("/cities_by_states", strict_slashes=False)
 def cities_by_states_hbnb():
     """
     route for /cities_by_states
