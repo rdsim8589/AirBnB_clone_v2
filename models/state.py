@@ -21,6 +21,7 @@ class State(BaseModel, Base):
                               cascade="all, delete, delete-orphan")
     else:
         name = ""
+
         @property
         def cities(self):
             """
@@ -31,7 +32,6 @@ class State(BaseModel, Base):
                 if self.id == city_obj.state_id:
                     city_state_objs.append(city_obj)
             return city_state_objs
-
 
     def __init__(self, *args, **kwargs):
         """
