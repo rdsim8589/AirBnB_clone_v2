@@ -14,7 +14,8 @@ def states_list_hbnb():
 
     returns the html of a list of states
     """
-    return render_template("7-states_list.html", states=storage.all("State"))
+    return render_template("7-states_list.html",
+                           states=storage.all("State").values())
 
 
 @app.teardown_appcontext
