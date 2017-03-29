@@ -18,17 +18,18 @@ def states_hbnb(id):
 
     """
     if id is "":
-        obj=storage.all("State").values()
+        obj = storage.all("State").values()
         return render_template("9-states.html",
                                state=id,
                                objs=obj)
     else:
-        obj=storage.all("State")[id]
-        state_name =  obj.name
+        obj = storage.all("State")[id]
+        state_name = obj.name
         list_cities = obj.cities
         return render_template("9-states.html",
                                state=state_name,
                                objs=list_cities)
+
 
 @app.teardown_appcontext
 def teardown_db(exception):

@@ -31,6 +31,7 @@ def python_hbnb(text):
     """ route /python/ with text afterwards """
     return("Python " + text.replace("_", " "))
 
+
 @app.route("/number/<int:num>")
 def int_hbnb(num):
     """ route only numbers """

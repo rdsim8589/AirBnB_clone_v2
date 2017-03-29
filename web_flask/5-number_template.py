@@ -31,14 +31,18 @@ def python_hbnb(text):
     """ route /python/ with text afterwards """
     return "Python {}".format(text.replace("_", " "))
 
+
 @app.route("/number/<int:n>")
 def number_hbnb(n):
     """ route only numbers """
     return "{:d} is a number".format(n)
 
+
 @app.route("/number_template/<int:n>")
 def number_template_hbnb(n):
+    """ path to use flask application take in arguement from path"""
     return render_template("5-number.html", n=n)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")

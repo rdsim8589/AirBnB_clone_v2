@@ -11,10 +11,12 @@ def hello_hbnb():
     """ route / will return 'Hello HBNB!' """
     return "Hello HBNB!"
 
+
 @app.route("/hbnb")
 def hbnb_hbnb():
     """/hbnb route returns HBNB"""
     return "HBNB"
+
 
 @app.route("/c/<text>")
 def c_hbnb(text):
