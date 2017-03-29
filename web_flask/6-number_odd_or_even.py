@@ -46,9 +46,9 @@ def number_template_hbnb(n):
 
 @app.route("/number_odd_or_even/<int:n>")
 def parity_hbnb(n):
-    """ set an argument from sub DN to html """"
+    """ set an argument from sub DN to html """
     return render_template("6-number_odd_or_even.html", n=n)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port="5000")
