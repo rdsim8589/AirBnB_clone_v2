@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from models.base_model import Base
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 from os import getenv
 from models.user import User
 from models.amenity import Amenity
@@ -75,5 +75,8 @@ class DBStorage:
         be in the init method
         """
         Base.metadata.create_all(self.__engine)
-        Session = sessionmaker(bind=self.__engine)
-        self.__session = Session()
+        self.__session = scoped_session(sessionmaker(bind=self.__engine))
+
+    def close(self):
+        """ removed the current session """
+        self.__session.remove()
