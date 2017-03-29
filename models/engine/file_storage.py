@@ -37,14 +37,14 @@ class FileStorage:
     def __init__(self):
         """Instantiate the class"""
         self.__models_available = {"User": User, "BaseModel": BaseModel,
-                                   "Amenity": Amenity, "city": City,
+                                   "Amenity": Amenity, "City": City,
                                    "Place": Place, "Review": Review,
                                    "State": State}
         self.reload()
 
     def all(self, cls=None):
         """
-        Returns the required objects
+        Returns the required objects as a dictionary
 
         **Arguments**
             cls: not required, a valid Class Name
@@ -100,3 +100,6 @@ class FileStorage:
         if obj:
             FileStorage.__objects.pop(obj.id, None)
             self.save()
+
+    def close(self):
+        self.save()
