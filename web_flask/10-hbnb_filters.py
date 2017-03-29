@@ -8,16 +8,15 @@ app = Flask(__name__)
 
 
 @app.route("/hbnb_filters/", strict_slashes=False)
-def states_hbnb(id):
+def hbnb_filters_hbnb():
     """
     route for /hbnb_filters
-
     """
     states = storage.all("State").values()
     amenities = storage.all("Amenity").values()
     return render_template("10-hbnb_filters.html",
                                states=states,
-                               amenities=amenity)
+                               amenities=amenities)
 
 
 @app.teardown_appcontext
