@@ -102,4 +102,4 @@ class FileStorage:
             self.save()
 
     def close(self):
-        self.save()
+        self.reload()
